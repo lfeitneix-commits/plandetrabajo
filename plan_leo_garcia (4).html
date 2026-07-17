@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de Trabajo — Leonardo García</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#3D3D3D;
+    --red:#AB1930;
+    --gray:#E4E4E4;
+    --cream:#F7F5F3;
+    --taupe:#9A8E7D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:var(--cream);color:var(--charcoal);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;}
+  .mono{font-family:'DM Mono',monospace;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 32px;}
+
+  /* HEADER — same visual language as the one-pager */
+  header{background:var(--charcoal);color:var(--cream);padding:56px 0 40px;}
+  .logo{height:26px;margin-bottom:34px;}
+  .logo svg{height:100%;width:auto;display:block;}
+  .kicker{
+    font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:#e8899a;margin-bottom:14px;
+  }
+  h1{font-size:42px;font-weight:700;letter-spacing:-.01em;line-height:1.08;}
+  .role{
+    margin-top:16px;font-family:'DM Mono',monospace;font-size:14px;color:var(--taupe);
+  }
+  .role b{color:var(--cream);font-weight:500;}
+  .role .sep{color:rgba(247,245,243,0.3);margin:0 12px;}
+  .objective{
+    margin-top:24px;padding-top:22px;border-top:1px solid rgba(247,245,243,0.16);
+    font-size:15px;line-height:1.6;color:var(--gray);max-width:680px;
+  }
+  .objective b{color:var(--cream);font-weight:500;}
+
+  /* FILTER BAR */
+  .filterbar{
+    background:var(--cream);border-bottom:1px solid var(--gray);
+    position:sticky;top:0;z-index:20;
+  }
+  .filters{display:flex;gap:8px;padding:16px 0;flex-wrap:wrap;}
+  .filter-btn{
+    font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.03em;
+    background:transparent;border:1px solid var(--gray);color:var(--taupe);
+    padding:8px 16px;border-radius:20px;cursor:pointer;transition:.15s;
+  }
+  .filter-btn:hover{border-color:var(--taupe);color:var(--charcoal);}
+  .filter-btn.active{background:var(--charcoal);border-color:var(--charcoal);color:var(--cream);}
+  .filter-btn .n{color:var(--red);margin-left:6px;}
+  .filter-btn.active .n{color:#e8899a;}
+
+  /* SECTIONS */
+  main{padding:44px 0 60px;}
+  .area{margin-bottom:52px;}
+  .area:last-child{margin-bottom:0;}
+  .area.is-hidden{display:none;}
+  .sec-head{
+    display:flex;align-items:baseline;justify-content:space-between;
+    border-bottom:1.5px solid var(--charcoal);padding-bottom:10px;margin-bottom:6px;
+  }
+  .sec-head h2{font-size:22px;font-weight:700;}
+  .sec-count{font-family:'DM Mono',monospace;font-size:12.5px;color:var(--taupe);}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;}
+  .item{padding:18px 0;border-bottom:1px solid var(--gray);}
+  .item:last-child{border-bottom:none;}
+  .item .label{
+    font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;
+    color:var(--red);display:block;margin-bottom:5px;
+  }
+  .item p{font-size:15px;line-height:1.55;color:var(--charcoal);}
+
+  /* Administración subgroups */
+  .subcols{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:6px;}
+  .subgroup{margin-bottom:8px;}
+  .subgroup h3{
+    font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--red);margin:22px 0 6px;
+  }
+  .subgroup:first-child h3{margin-top:18px;}
+  .sub-item{padding:12px 0;border-bottom:1px solid var(--gray);}
+  .sub-item:last-child{border-bottom:none;}
+  .sub-item b{display:block;font-size:14.5px;font-weight:500;margin-bottom:3px;}
+  .sub-item p{font-size:14px;line-height:1.5;color:var(--charcoal);}
+
+  footer{padding:30px 0 44px;border-top:1px solid var(--gray);}
+  footer p{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--taupe);letter-spacing:.03em;}
+
+  @media (max-width:720px){
+    h1{font-size:30px;}
+    .cols,.subcols{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 362">
+          <polygon fill="#AB1930" points="903.6 134.65 941.09 78.2 985.97 78.2 948.48 134.65 903.6 134.65"/>
+          <rect fill="#FFFFFF" x="660.23" y="78.2" width="44.88" height="215.67"/>
+          <polygon fill="#FFFFFF" points="542.86 115.16 542.86 78.18 405.26 78.18 405.26 78.2 394.59 78.2 394.59 293.87 439.47 293.87 439.47 293.86 542.86 293.86 542.86 256.88 439.47 256.88 439.47 202.62 529.47 202.62 529.47 165.64 439.47 165.64 439.47 115.16 542.86 115.16"/>
+          <polygon fill="#FFFFFF" points="277.26 293.08 277.26 78.2 235.28 78.2 235.28 230 134.24 78.2 89.36 78.2 89.38 78.23 89.3 78.2 89.3 293.98 131.28 293.98 131.28 141.19 232.91 293.87 277.79 293.87 277.26 293.08"/>
+          <polygon fill="#FFFFFF" points="989.85 293.87 846.31 78.2 801.42 78.2 869.57 180.59 794.17 293.87 839.05 293.87 892.01 214.31 944.97 293.87 989.85 293.87"/>
+        </svg>
+      </div>
+      <div class="kicker">Plan de trabajo</div>
+      <h1>Leonardo García</h1>
+      <div class="role">Reporta a: <b>IT</b><span class="sep">/</span>Foco: <b>Migración a Full Broker</b></div>
+      <div class="objective">Reemplazar el Homebroker de Gallo, sistema en uso hoy, por <b>Full Broker</b>. Como insumo de arranque se relevaron los puntos de dolor sobre el sistema actual en Comerciales, Operaciones y Administración.</div>
+    </div>
+  </header>
+
+  <div class="filterbar">
+    <div class="wrap">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="comerciales">Comerciales <span class="n">6</span></button>
+        <button class="filter-btn" data-filter="operaciones">Operaciones <span class="n">4</span></button>
+        <button class="filter-btn" data-filter="administracion">Administración <span class="n">11</span></button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <div class="area" data-area="comerciales">
+      <div class="sec-head">
+        <h2>Comerciales</h2>
+        <span class="sec-count">6 puntos de dolor</span>
+      </div>
+      <div class="cols">
+        <div class="col">
+          <div class="item"><span class="label">Rendimientos</span><p>Los rendimientos calculados no son correctos.</p></div>
+          <div class="item"><span class="label">Resúmenes de cuenta</span><p>No se pueden descargar por período; solo se envían al mail del firmante.</p></div>
+          <div class="item"><span class="label">Cheques comprados</span><p>No figuran datos como la fecha de acreditación, que sí estaban en el HB viejo.</p></div>
+        </div>
+        <div class="col">
+          <div class="item"><span class="label">Operatoria T0 / T1</span><p>No se puede operar en T0 (por ej. una caución) luego de haber operado en T1.</p></div>
+          <div class="item"><span class="label">Rendimientos a fecha anterior</span><p>No hay rendimientos a una fecha anterior, aunque sí existe portfolio a fecha anterior.</p></div>
+          <div class="item"><span class="label">Descarga de portfolio</span><p>Solo se puede descargar en Excel; en el HB anterior también se podía en PDF.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="area" data-area="operaciones">
+      <div class="sec-head">
+        <h2>Operaciones</h2>
+        <span class="sec-count">4 puntos de dolor</span>
+      </div>
+      <div class="cols">
+        <div class="col">
+          <div class="item"><span class="label">Baja de boletos MAE</span><p>No se pueden bajar boletos MAE desde el Gallo tacita.</p></div>
+          <div class="item"><span class="label">Rueda TIVA MAE</span><p>No se pueden modificar los aranceles de los boletos.</p></div>
+        </div>
+        <div class="col">
+          <div class="item"><span class="label">Conciliación de CPD</span><p>Cambió el formato del archivo y el sistema no lo toma como válido.</p></div>
+          <div class="item"><span class="label">Valuación de activos</span><p>Hay activos mal valuados en el HB: el precio está bien pero el cálculo del sistema falla al operar una misma especie en distintas monedas.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="area" data-area="administracion">
+      <div class="sec-head">
+        <h2>Administración</h2>
+        <span class="sec-count">11 puntos de dolor</span>
+      </div>
+      <div class="subcols">
+        <div>
+          <div class="subgroup">
+            <h3>Facturación</h3>
+            <div class="sub-item"><b>Carga de facturas</b><p>Carga 100% manual: cuello de botella en días de alto volumen; se pide carga automática/masiva.</p></div>
+            <div class="sub-item"><b>Cálculo de retenciones</b><p>El sistema no calcula bien con facturas de dos netos; hoy se resuelve con un Excel aparte.</p></div>
+          </div>
+          <div class="subgroup">
+            <h3>Cartera propia</h3>
+            <div class="sub-item"><b>Precios</b><p>Doble pesificación detectada en JMIA (abril); el problema persiste en otros meses, en general con especies del exterior.</p></div>
+            <div class="sub-item"><b>Listados de Resultado</b><p>Funcionan a medias, algunos no exportan a Excel, y hay listados similares/redundantes sin que se entienda la diferencia entre ellos.</p></div>
+            <div class="sub-item"><b>Fórmulas de cálculo</b><p>Falta claridad sobre qué comprobantes entran al proceso mensual, cómo se toma el tipo de cambio y cómo se calcula el ajuste por inflación.</p></div>
+          </div>
+        </div>
+        <div>
+          <div class="subgroup">
+            <h3>Contable / IVA</h3>
+            <div class="sub-item"><b>Sumas y Saldos</b><p>Al exportar a Excel, los importes negativos grandes se muestran como 0.</p></div>
+            <div class="sub-item"><b>Percepciones de IVA</b><p>Mal reflejadas en varios listados: anuladas en positivo (Listado Control IVA Débito Fiscal) y mal imputadas en "No Gravado/Exento" (IVA Compras).</p></div>
+            <div class="sub-item"><b>CITI Ventas</b><p>Discrepancias frente al Listado Control IVA Débito Fiscal (condición de IVA de comitentes, ticket sin resolver) y toma un único tipo de cambio del día cuando hay operaciones a TC distintos.</p></div>
+            <div class="sub-item"><b>Asientos y Copiativo de Ventas</b><p>El sistema permite registrar asientos contables desbalanceados, y el Copiativo de Ventas no siempre coincide con el Listado Control IVA.</p></div>
+          </div>
+          <div class="subgroup">
+            <h3>Carga de precios</h3>
+            <div class="sub-item"><b>Sistema Tacita</b><p>No funciona.</p></div>
+            <div class="sub-item"><b>Precios del exterior</b><p>La carga es manual; se pide poder automatizarla.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="wrap">
+    <footer>
+      <p>NEIX · IT — Plan de trabajo, Leonardo García</p>
+    </footer>
+  </div>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const areas = document.querySelectorAll('.area');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      areas.forEach(area => {
+        if(f === 'todos' || area.dataset.area === f){
+          area.classList.remove('is-hidden');
+        } else {
+          area.classList.add('is-hidden');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
